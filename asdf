@@ -1,16 +1,17 @@
-int motor_left_1 = 3;
-int motor_left_2 = 4;
-int motor_right_1 = 5;
-int motor_right_2 = 6;
-int trigPin = 13;
-int echoPin = 12;
+int trigPin = 9;
+int echoPin = 10;
+int revright = 4;      //REVerse motion of Right motor
+int fwdleft = 7;      
+int revleft= 6;       
+int fwdright= 5;       //ForWarD motion of Right motor
+int c = 0;
 
 void setup() {
   //Serial.begin(9600); 
-   pinMode(motor_left_1, OUTPUT);
-   pinMode(motor_left_2, OUTPUT);
    pinMode(5, OUTPUT);
    pinMode(6, OUTPUT);
+   pinMode(4, OUTPUT);
+   pinMode(7, OUTPUT);
    pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   // put your setup code here, to run once:
@@ -31,18 +32,18 @@ void loop() {
   
   if((distance>20))
  {
-  digitalWrite(3,HIGH);                               //       If you dont get proper movements of your robot,
+  digitalWrite(5,HIGH);                               //       If you dont get proper movements of your robot,
    digitalWrite(4,LOW);                               //        then alter the pin numbers
-   digitalWrite(5,HIGH);                               //
-   digitalWrite(6,LOW);                              //
+   digitalWrite(6,LOW);                               //
+   digitalWrite(7,HIGH);                              //
  }
  
   else if(distance<20)  
  {
-   digitalWrite(3,LOW);
-   digitalWrite(4,HIGH);
-   digitalWrite(5,LOW);                                  //HIGH
-   digitalWrite(6,HIGH);
+   digitalWrite(5,HIGH);
+   digitalWrite(4,LOW);
+   digitalWrite(6,HIGH);                                  //HIGH
+   digitalWrite(7,LOW);
                                             
  }
  
